@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex proposta"] 1617206837 "proposta.aux" "proposta.bbl" "proposta" 1617206977
+["bibtex proposta"] 1617233422 "proposta.aux" "proposta.bbl" "proposta" 1617233426
   "/usr/share/texmf-dist/bibtex/bst/IEEEtran/IEEEtran.bst" 1607185529 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
   "mybib.bib" 1617197189 722 6a70a18eb0d9a71dcd8a106285dd4983 ""
-  "proposta.aux" 1617206977 1650 b665b565c02868efe97064eb6baa4c8d "pdflatex"
+  "proposta.aux" 1617233425 1589 ae6399a29092f4f8a19aada830f7b32a "pdflatex"
   (generated)
   "proposta.blg"
   "proposta.bbl"
-["pdflatex"] 1617206976 "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.tex" "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.pdf" "proposta" 1617206977
-  "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.aux" 1617206977 1650 b665b565c02868efe97064eb6baa4c8d ""
-  "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.tex" 1617206975 5115 338f49f7d6ab62dce60e0e64a369107b ""
+["pdflatex"] 1617233424 "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.tex" "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.pdf" "proposta" 1617233426
+  "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.aux" 1617233425 1589 ae6399a29092f4f8a19aada830f7b32a ""
+  "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.tex" 1617233412 7242 fb706281994cff09b2bd1f69097a1ac8 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1607249373 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1607249373 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1607249373 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -79,6 +79,7 @@
   "/usr/share/texmf-dist/tex/latex/base/textcomp.sty" 1607249373 2821 2c0928feafd5527387e29a1af774d030 ""
   "/usr/share/texmf-dist/tex/latex/cite/cite.sty" 1607249373 26218 19edeff8cdc2bcb704e8051dc55eb5a7 ""
   "/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1607249373 13886 d1306dcf79a944f6988e688c1785f9ce ""
+  "/usr/share/texmf-dist/tex/latex/float/float.sty" 1607249373 6749 16d2656a1984957e674b149555f1ea1d ""
   "/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1607249373 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1607249373 1224 978390e9c2234eab29404bc21b268d1e ""
   "/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def" 1607249373 19103 48d29b6e2a64cb717117ef65f107b404 ""
@@ -95,6 +96,7 @@
   "/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1607249373 23704 02c466ff883953a445c97e55638005fc ""
   "/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1607249373 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty" 1607249373 5766 13a9e8766c47f30327caf893ece86ac8 ""
+  "/usr/share/texmf-dist/tex/latex/placeins/placeins.sty" 1607185936 4087 636308456f60d2b31cbf97867db5708d ""
   "/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1607249373 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "/usr/share/texmf-dist/tex/latex/refcount/refcount.sty" 1607249373 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1607249373 9715 b051d5b493d9fe5f4bc251462d039e5f ""
@@ -103,14 +105,14 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1607249373 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1615388728 5013534 fd35bdaa60a6f086a27ce99b94bb8742 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1615388677 2635854 0840cf990fb4037c0aab6c700610cb25 ""
-  "proposta.aux" 1617206977 1650 b665b565c02868efe97064eb6baa4c8d "pdflatex"
-  "proposta.bbl" 1617206837 1112 6bdb771abbf3c206f862792e2c6201e6 "bibtex proposta"
-  "proposta.out" 1617206977 320 b4045be63ec3fb9cc81aaf18179ed005 "pdflatex"
-  "proposta.tex" 1617206975 5115 338f49f7d6ab62dce60e0e64a369107b ""
+  "proposta.aux" 1617233425 1589 ae6399a29092f4f8a19aada830f7b32a "pdflatex"
+  "proposta.bbl" 1617233423 1112 6bdb771abbf3c206f862792e2c6201e6 "bibtex proposta"
+  "proposta.out" 1617233425 379 a32ad739272e6d802ef11394fe74e1b6 "pdflatex"
+  "proposta.tex" 1617233412 7242 fb706281994cff09b2bd1f69097a1ac8 ""
   (generated)
   "proposta.out"
-  "proposta.pdf"
-  "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.log"
-  "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.pdf"
   "proposta.log"
+  "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.pdf"
+  "/home/clockus/Desktop/Classificador-de-Bayes-Ingenuo/PROPOSTA/proposta.log"
+  "proposta.pdf"
   "proposta.aux"
