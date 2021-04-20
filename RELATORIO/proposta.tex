@@ -58,10 +58,79 @@ Este projeto foi escolhido com base na maneira organizada e completa que o conju
 Sua função é prover dados sobre a possibilidade de um cliente aderir ou não o serviço prestado pela agência com base em testes com múltiplas entradas de dados e com duas saídas possíveis, sim ou não. Seu público alvo são principalmente bancos, qualquer área de estudo sobre comportamento social e estudos sobre aprendizagem de máquina.
 
 \section{Base de Dados}
+Os dados são referentes a campanhas de marketing direto, por meio de telefonemas,muitas vezes repetindo o contato com um mesmo cliente, de uma uma instituição bancária portuguesa. O objetivo de sua classificação é prever de antemão se um cliente irá aderir ou não um depósito a prazo(identificado como a variável y).
+O banco de dados completo está distribuído em quatro conjuntos sendo eles:
+
+\begin{itemize}
+\item bank-additional-full.csv com todos os exemplos (41188) e 20 entradas, ordenadas por data (de maio de 2008 a novembro de 2010), muito próximo aos dados analisados em [Moro et al., 2014 ]
+
+\item bank-additional.csv com 10\% dos exemplos (4119), selecionados aleatoriamente de 1) e 20 entradas.
+
+\item bank-full.csv com todos os exemplos e 17 entradas, ordenadas por data (versão mais antiga deste conjunto de dados com menos entradas).
+
+\item bank.csv com 10\% dos exemplos e 17 entradas, selecionadas aleatoriamente a partir de 3 (versão mais antiga deste conjunto de dados com menos entradas).
+\end{itemize}
+
+Para o projeto será usado o item 3 (bank-full.csv) contendo 16 variáveis de entrada e uma de saída sendo elas (Nota: os exemplos de entrada abaixo estão todos em inglês, pois é assim que se encontra no banco de dados):
+
+
+\subsection{16 Variáveis de entrada:}
+
+\begin{itemize}
+    \item age: (numerico).
+
+    \item job: tipo de trabalho (categórico: 'admin.','blue-collar','entrepreneur','housemaid','management','retired','self-employed','services','student','technician','unemployed','unknown').
+
+    \item marital: estado civil (categórico: 'divorced','married','single','unknown'; nota: 'divorced' significa divorciado ou viúvo).
+
+    \item education: (categórico: 'basic.4y','basic.6y','basic.9y','high.school','illiterate','professional.course','university.degree','unknown').
+
+    \item default: possui crédito inadimplente? (categórico: 'no','yes','unknown').
+
+    \item balance (numérico).
+
+    \item housing: possui crédito de habitação? (categórico: 'no','yes','unknown').
+
+    \item loan: possui crédito pessoal? (categórico: 'no','yes','unknown').
+
+    \item contact: tipo de comunicação do contato (categórico: 'cellular','telephone').
+
+    \item day: dia do último contato  (numérico).
+
+    \item duration: duração do último contato em segundos (numeric, nota importante, este atributo pode afetar muito a saída, por exemplo se a duração for ‘0’ então y = ‘no’, todavia a duração é desconhecida até que a chamada tenha terminado, nesse caso y é conhecido, sendo assim a entrada só será  incluída se realmente for necessária).
+
+    \item month: último mês do contato (categórico: 'jan', 'feb', 'mar', ..., 'nov', 'dec').
+
+    \item campaign: número de contatos realizados durante a campanha para este contato (numerico, inclui o último contato feito).
+    
+    \item pdays: número de dias que se passaram desde o último contato de uma campanha anterior para este cliente (numérico; 999 significa que este cliente não foi contatado antes).
+
+    \item previous: número de contatos realizados para este cliente antes dessa campanha (numérico).
+
+    \item poutcome: resultado da campanha de marketing anterior (categórico: 'failure','nonexistent','success').
+\end{itemize}
+
+\subsection{Uma Variavel de saida:}
+\begin{itemize}
+    \item y : o cliente assinou o depósito a prazo (binário: ‘yes’, ‘no’) .
+\end{itemize}
+
 
 \section{Análise Exploratória dos Dados}
 
 \section{Classificador Ingênuo de Bayes}
+Baseado no Teorema de Bayes, nome em homenagem ao matemático e pastor presibiteriano inglês Thomas Bayes, que formulou uma função probabilística com o ideal de provar a existência de Deus, Naive Bayes é um algoritmo de classificação probabilística muito utilizado para aprendizado de máquina (Machine Learning). O algoritmo possui a habilidade de categorizar textos baseado na frequência em que as palavras são dispostas, o exemplo mais comum são os filtros de e-mail que podem utilizar o Naive Bayes para identificar se uma mensagem é um spam apenas lendo a disposição das palavras utilizadas. O nome Naive, do português ingênuo, vem do fato que o algoritmo desconsidera totalmente a correlação entre as variáveis, tratando cada uma de maneira independente.
+
+\subsection{Definição Formal do Teorema de Bayes}
+O teorema é um corolário da lei da probabilidade total e é descrito da seguinte maneira, sejam A e B dois eventos e P(A) e P(B) as probabilidades de A e B, respectivamente, sendo P(B) diferente de 0, então o Teorema de Bayes nos diz que,
+
+\begin{equation}
+    P(A|B) = \frac{P(B|A)P(A)}{P(B)},
+\end{equation} 
+De maneira análoga, com P(A) diferente de 0,  
+\begin{equation}
+   P(B|A) = \frac{P(A|B)P(B)}{P(A)}.
+\end{equation} 
 
 \section{Experimentos}
 
