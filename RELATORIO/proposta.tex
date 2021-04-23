@@ -132,7 +132,52 @@ De maneira análoga, com P(A) diferente de 0,
    P(B|A) = \frac{P(A|B)P(B)}{P(A)}.
 \end{equation} 
 
+\subsection{Tipos de Classificadores Ingênuos de Bayes}
+A biblioteca Scikit learn apresenta diversos tipos de Classificadores. As diferenças principais entre eles são principalmente em relação as suposições feitas em relação a distribuição de probabilidade $P(x_i|y)$. 
+No projeto foram-se aplicados dois tipos de Classificadores, o Gaussiano e o Categórico:
+
+\subsubsection{Bayes Ingênuo Gaussiano}
+O classificador de bayes gaussiano supõe que as variáveis seguem uma distribuição normal, a verossimilhança das variáveis são supostas como gaussianas:
+
+\begin{equation}
+    P(x_i|y) = \frac{1}{\sqrt{2\pi\sigma_y^2}}e^{-\frac{(x_i - \mu_y)^2}{2\sigma_y^2}}
+\end{equation}
+
+Os parametros $\sigma_y$ e $\mu_y$ são estimados usando máxima verossimilhança.
+
+
+\subsubsection{Bayes Ingênuo Categórico}
+O Bayes Ingênuo Categórico implementa o classificador de bayes ingênuo para distribuição categórica de dados.
+
+A probabilidade de $x_i$ ser da categoria t dado a classe é c é estimado como:
+
+\begin{equation}
+    P(x_i = t | y = x; \alpha) = \frac{N_{tic} + \alpha}{N_c + \alpha n_i}
+\end{equation}
+
+onde:
+
+\begin{itemize}
+\item $N_{tic}$ é o número de vezes que a categoria t aparece na amostra e pertence a classe c
+\item $N_c$ é o número de amostras que pertence a classe c
+\item $\alpha$ é um parâmetro de calibração
+\end{itemize}
+
+\subsection{Sobre o Projeto}
+Para montar o classificador foi necessário passar  pelas seguintes etapas:
+
+\begin{enumerate}
+\item Carregar o dataframe através da biblioteca Pandas
+\item Separação dos valores de x e de y
+\item Conversão dos valores da Base de Dados para números inteiros através do módulo preprocessing da biblioteca sklearn.model\_selection
+\item Separação dos Dados para treino e para teste através do módulo train\_test\_split da biblioteca sklearn.model\_selection
+\item Treino do Classificador Ingênuo de Bayes através dos módulos GaussianNB e CategoricalNB da biblioteca sklearn.naive\_bayes. Foram criados dois classificadores: Um Gaussiano que assume que todas as variáveis de treino são normais (o que não é verdade), e um categórico que assume que as variáveis de treino seguem uma distribuição categórica (Mais próximo da realidade).
+\end{enumerate}
+
 \section{Experimentos}
+
+\subsection{Experimentos Iniciais}
+Após treinar ambos os classificadores (Gaussiano e Categórico), foi-se verificado algumas medidas de precisão e acurácia:
 
 \section{Análise dos Resultados}
 
