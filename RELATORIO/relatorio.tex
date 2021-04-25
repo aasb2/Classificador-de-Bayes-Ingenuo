@@ -265,10 +265,38 @@ Para montar o classificador foi necessário passar  pelas seguintes etapas:
 Após treinar ambos os classificadores (Gaussiano e Categórico), usando 20 por cento dos dados para teste. Foi verificado alguns valores referente ao teste:
 
 \begin{itemize}
-\item Precisão:
-\item Acurácia:
-\item Recall-Score:
-\item F1-Score:
+\item Precision: Precision é a razão
+    \begin{equation}
+        \frac{t_p}{t_p + f_p}
+    \end{equation}
+
+    onde:
+
+    \begin{itemize}
+    \item $t_p$ é o número de verdadeiros positivos
+    \item $f_p$ é o número de falsos positivos.
+    \end{itemize}
+
+    Precision é intuitivamente a habilidade do classificador não marcar como positivo uma amostra que é negativa. O melhor valor de Precision é 1 e o pior é zero.
+    \cite{b7}
+\item Accuracy:
+\item Recall-Score: O Recall Score é a razão:
+    \begin{equation}
+        \frac{t_p}{t_p + f_n}
+    \end{equation}
+    onde:
+    \begin{itemize}
+    \item $t_p$ é o número de verdadeiros positivos
+    \item $f_n$ é o número de falsos negativos
+    \end{itemize}
+    O Recall Score é intuitivamente a habilidade do classificador de encontrar todas as amostras positivas. O melhor valor do Recall Score é 1 e o pior valor é 0.
+    \cite{b6}
+\item F1-Score: O F1 Score pode ser interpretado como a média ponderada da precisão e recall. O melhor valor que o  F1 score pode alcançar é 1, o pior é 0. A contribuição relativa da precisão e recall para o F1 score são iguais. A fórmula para o F1 score é:
+\begin{equation}
+    F1 = \frac{2\cdot(precision\cdot recall)}{precision + recall}
+\end{equation}
+\cite{b2}
+\item Confusion Matrix
 \end{itemize}
 \begin{table}[H]
 	\centering
@@ -280,8 +308,8 @@ Após treinar ambos os classificadores (Gaussiano e Categórico), usando 20 por 
             \hline
                                     & Categórico       & Gaussiano\\
             \hline
-            Precisão                & 0.89             & 0.84\\
-            Acurácia                & 0.89             & 0.84\\
+            Precision               & 0.89             & 0.84\\
+            Accuracy                & 0.89             & 0.84\\
             Recall Score            & 0.89             & 0.84\\
             F1-Score                & 0.89             & 0.84\\
             
@@ -290,13 +318,62 @@ Após treinar ambos os classificadores (Gaussiano e Categórico), usando 20 por 
     \end{small}
 \end{table}
 
-\begin{figure}[H]
-\centerline{\includegraphics[width=0.5\textwidth]{cm-categorico.png}}
-\end{figure}
+\begin{table}[H]
+
+	\centering
+    \caption{\label{tab:cr1-cnb} Relatório de Classificação por Label do Classificador Categórico.}
+    \begin{small}
+        \begin{tabular}{ccc}
+        
+            \hline
+                                    & 0                & 1\\
+            \hline
+            Precision               & 0.93             & 0.53\\
+            Recall Score            & 0.95             & 0.43\\
+            F1-Score                & 0.94             & 0.47\\
+            
+            \hline
+        \end{tabular}
+    \end{small}
+
+\end{table}
 
 \begin{figure}[H]
-    \centerline{\includegraphics[width=0.5\textwidth]{cm-gaussiano.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{IMGS/cm-categorico.png}}
+
+\caption{\label{fig:cm1-cnb}Confusion Matrix do Classificador Categórico}
 \end{figure}
+
+
+
+
+\begin{table}[H]
+
+	\centering
+    \caption{\label{tab:cr1-gnb} Relatório de Classificação por Label do Classificador Gaussiano}
+    \begin{small}
+        \begin{tabular}{ccc}
+        
+            \hline
+                                    & 0                & 1\\
+            \hline
+            Precision                & 0.89             & 0.49\\
+            Recall Score            & 1.00             & 0.03\\
+            F1-Score                & 0.94             & 0.06\\
+            
+            \hline
+        \end{tabular}
+    \end{small}
+
+\end{table}
+
+
+\begin{figure}[H]
+\centerline{\includegraphics[width=0.5\textwidth]{IMGS/cm-gaussiano.png}}
+\label{cm1-gnb}
+\caption{\label{fig:cm1-gnb}Confusion Matrix do Classificador Gaussiano}
+\end{figure}
+
 
 
 \section{Análise dos Resultados}
