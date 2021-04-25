@@ -117,6 +117,91 @@ Para o projeto será usado o item 3 (bank-full.csv) contendo 16 variáveis de en
 
 
 \section{Análise Exploratória dos Dados}
+\subsection{Descrição Estatística dos dados}
+\begin{itemize}
+	\item	O campo \textbf{\textit{count}}, representa a quantidade de instancias que contém aquele atributo.
+	\item	O campo \textbf{\textit{unique}} se refere a quantas categorias existem daquele atributo, caso ele seja do tipo texto descritivo (não numérico).
+	\item	O campo \textbf{\textit{top}} se refere a categoria mais encontrada daquele atributo.
+	\item	O campo \textbf{\textit{freq}} é o número de vezes que a categoria top daquele atributo foi encontrada.
+	\item	O campo \textbf{\textit{mean}} informa a média dos valores daquele atributo, caso sejam numéricos.
+	\item	O campo \textbf{\textit{std}} informa o desvio padrão dos dados daquele atributo.
+	\item	O campo \textbf{\textit{min}} mostra o menor valor numérico que aquele atributo possui nas amostras, considerando todas as instâncias.
+	\item	O campo \textbf{\textit{25\%}} se refere ao primeiro quartil das amostras daquele atributo.
+	\item	O campo \textbf{\textit{50\%}} se refere ao segundo quartil das amostras daquele atributo.
+	\item	O campo \textbf{\textit{75\%}} se refere ao terceiro quartil das amostras daquele atributo.
+	\item	O campo \textbf{\textit{max}} informa o maior valor que aquele atributo possui entre todas as amostras.
+\end{itemize}
+\subsection{Dados Disponíveis ou ausentes}
+\begin{itemize}
+	\item 	Os atributos \textbf{age, day, duration, campaign, pdays, previous}, possuem informação do tipo numérico e são valores quantitativos discretos.
+	\item 	O atributo \textbf{balance}, possuui informação do tipo numérico e são valores quantitativos contínuos.
+	\item 	Os atributos \textbf{job, marital, education, default, housing, loan, contact, poutcome}, possuem informação do tipo texto descritivo(categorias), seus valores são qualitativos nominais.
+	\item 	Os atributo \textbf{month}, possui informação do tipo texto descritivo(categorias), seus valores são qualitativos ordinais.
+	\item Não existem dados faltando(ausentes) em nenhum campo de nenhuma instância.
+\end{itemize}
+\subsection{Gráficos}
+\begin{itemize}
+	\item[(1)] 	Primeiro temos o Histograma (Fig.\ref{figura:distidade}) das idades em relação ao total de amostras.
+	\subitem- 	Com destaque para a maior parte dos valores estarem próximos ao intervalo  entre 30 e 40 anos.
+	\subitem- 	Temos a média como 40,936210, e o desvio padrão de 10,618762.
+	\item[(2)] Segundo temos o número de pessoas que obtiveram emprestimo de casa em relação a sua grau de educação escolar (Fig.\ref{figura:fig2}).
+	\subitem- 	Destaque para o grau secundário que tem a maior parte dos que pegaram empréstimo.
+	\subitem-		O grau secundário(ensino médio) é o que mais aparece nas amostras.
+	\item[(3)] Temos o grau da educação escolar em relação ao Saldo médio anual (Fig.\ref{figura:fig3}) 
+	\subitem-		O destaque fica para os valores Outliers do saldo, principalmente pro grau tertiary(Faculdade).
+	\begin{figure}[h]
+		\caption{Exemplo}
+		\centering % para centralizarmos a figura
+		\includegraphics[width=8cm]{IMGS/img1.png}
+		\label{figura:distidade}
+		\caption{Exemplo2}
+		%\centering % para centralizarmos a figura
+		\includegraphics[width=8cm]{IMGS/img2.png}
+		\label{figura:fig2}
+		\caption{Exemplo4}
+		\centering % para centralizarmos a figura
+		\includegraphics[width=8cm]{IMGS/img3.png}
+		\label{figura:fig3}
+	\end{figure}
+	\item[(4)] Temos o número de empréstimos de casa em relação ao tipo de contato que foi registrado (Fig. \ref{figura:fig4}).
+	\subitem-		O destaque está no tipo de contato cellular, que possui um número de emprestimo 'sim' muito próximo ao 'não', apesar de 25130 de todas as amostras serem com valor \textbf{\textit{sim}}.
+	\item[(5)] Temos o boxplot (Fig.\ref{figura:fig5}) de empréstimo pessoal em relação a idade.
+	\subitem-		Temos os valores do primeiro quartil, do terceiro quartil e da mediana de cada boxplot, para as respostas \textbf{\textit{sim}} e \textbf{\textit{não}}.
+	\subitem-		Podemos ver que a mediana de ambos os boxplots, têm uma valores muito próximos.
+	\subitem- 		Outro destaque vai para os outliers das amostras com respostas \textbf{\textit{sim}}.
+	\begin{figure}[h]
+		\caption{Exemplo4}
+		\centering % para centralizarmos a figura
+		\includegraphics[width=8cm]{IMGS/img4.png}
+		\label{figura:fig4}
+		\caption{Exemplo5}
+		%\centering % para centralizarmos a figura
+		\includegraphics[width=8cm]{IMGS/img5.png}
+		\label{figura:fig5}
+	\end{figure}
+	\item[(6)] Temos o strippplot (Fig.\ref{figura:fig6}) de empréstimo pessoal em relação a idade.
+	\subitem-		Com destaque para as idades que foram os outliers, em relação ao Não Empréstimo, temos os mais velhos.
+	\subitem-		Já do outro lado, os que sim, tiveram emprétimo pessoal estavam em um intervalo de idade menor, e mais jovem.
+	\item[(7)] Temos o strippplot (Fig.\ref{figura:fig7}) dos meses em relação a campanha que foi realizada.
+	\subitem-		Com destaque para os meses do meio do ano que contemplam a maior parte das amostras.
+	\subitem-		Enquanto que no final do ano, foram registrados as menores parcelas das amostras.
+	\begin{figure}[h]
+		\caption{Exemplo6}
+		\centering % para centralizarmos a figura
+		\includegraphics[width=8cm]{IMGS/img6.png}
+		\label{figura:fig6}
+		\caption{Exemplo7}
+		%\centering % para centralizarmos a figura
+		\includegraphics[width=8cm]{IMGS/img7.png}
+		\label{figura:fig7}
+	\end{figure}
+\end{itemize}
+\subsection{Outliers}
+Nesta seção temos a quantidade de pessoas que aceitaram ou recusaram assinar um investimento, em cada classe ou categoria de cada atributo para os atributos do tipo texto descritivo, e em relação aos valores númericos de um atributo, para um atributo do tipo numérico. 
+%\begin{itemize}
+%	\item 
+%\end{itemize}
+
 
 \section{Classificador Ingênuo de Bayes}
 Baseado no Teorema de Bayes, nome em homenagem ao matemático e pastor presibiteriano inglês Thomas Bayes, que formulou uma função probabilística com o ideal de provar a existência de Deus, Naive Bayes é um algoritmo de classificação probabilística muito utilizado para aprendizado de máquina (Machine Learning). O algoritmo possui a habilidade de categorizar textos baseado na frequência em que as palavras são dispostas, o exemplo mais comum são os filtros de e-mail que podem utilizar o Naive Bayes para identificar se uma mensagem é um spam apenas lendo a disposição das palavras utilizadas. O nome Naive, do português ingênuo, vem do fato que o algoritmo desconsidera totalmente a correlação entre as variáveis, tratando cada uma de maneira independente.
