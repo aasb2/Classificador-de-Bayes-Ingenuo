@@ -230,7 +230,7 @@ O classificador de bayes gaussiano supõe que as variáveis seguem uma distribui
 
 Os parametros $\sigma_y$ e $\mu_y$ são estimados usando máxima verossimilhança.
 
-
+\cite{b5}
 \subsubsection{Bayes Ingênuo Categórico}
 O Bayes Ingênuo Categórico implementa o classificador de bayes ingênuo para distribuição categórica de dados.
 
@@ -248,15 +248,24 @@ onde:
 \item $\alpha$ é um parâmetro de calibração
 \end{itemize}
 
+\cite{b5}
 \subsection{Sobre o Projeto}
 Para montar o classificador foi necessário passar  pelas seguintes etapas:
 
+\begin{figure}[H]
+    \centerline{\includegraphics[width=0.4\textwidth]{IMGS/block1.png}}
+    
+    \caption{\label{fig:block1}Passo a Passo para Montar o Classificador Ingênuo de Bayes}
+\end{figure}
+
 \begin{enumerate}
-\item Carregar o dataframe através da biblioteca Pandas
-\item Separação dos valores de x e de y
+\item Carregar o data frame através da biblioteca Pandas
+\item Separação dos valores de x (entrada) e de y (saída)
 \item Conversão dos valores da Base de Dados para números inteiros através do módulo preprocessing da biblioteca sklearn.model\_selection
 \item Separação dos Dados para treino e para teste através do módulo train\_test\_split da biblioteca sklearn.model\_selection
 \item Treino do Classificador Ingênuo de Bayes através dos módulos GaussianNB e CategoricalNB da biblioteca sklearn.naive\_bayes. Foram criados dois classificadores: Um Gaussiano que assume que todas as variáveis de treino são normais (o que não é verdade), e um categórico que assume que as variáveis de treino seguem uma distribuição categórica (Mais próximo da realidade).
+\item Predição dos valores de usando as variáveis de entrada separadas para teste
+\item Avaliação Do classificador Usando métricas de classificação
 \end{enumerate}
 
 \section{Experimentos}
@@ -279,7 +288,18 @@ Após treinar ambos os classificadores (Gaussiano e Categórico), usando 20 por 
 
     Precision é intuitivamente a habilidade do classificador não marcar como positivo uma amostra que é negativa. O melhor valor de Precision é 1 e o pior é zero.
     \cite{b7}
-\item Accuracy:
+\item Accuracy: accuracy é a fração de amostras preditas corretamente, e é dada pela seguinte fórmula:
+\begin{equation}
+    \frac{t_p + t_n}{t_p + t_n + f_p + f_n}
+\end{equation}
+onde:
+\begin{itemize}
+    \item $t_p$ é o número de verdadeiros positivos
+    \item $f_p$ é o número de falsos positivos.
+    \item $t_n$ é o número de verdadeiros negativos.
+    \item $f_n$ é o número de falsos negativos.
+\end{itemize}
+\cite{b8}
 \item Recall-Score: O Recall Score é a razão:
     \begin{equation}
         \frac{t_p}{t_p + f_n}
@@ -296,10 +316,19 @@ Após treinar ambos os classificadores (Gaussiano e Categórico), usando 20 por 
     F1 = \frac{2\cdot(precision\cdot recall)}{precision + recall}
 \end{equation}
 \cite{b2}
-\item Confusion Matrix
+\item Confusion Matrix:
+No caso de classificação binária uma confusion matrix é dividida em quatro categorias, cada uma apresentando a quantidade de valores que se encaixam nesta. Elas são:
+\begin{itemize}
+\item Verdadeiro Negativo: Valor Real = 0, Valor Predito = 0
+\item Falso Negativo: Valor Real = 1, Valor Predito = 0
+\item Falso Positivo: Valor Real = 0, Valor Predito = 1
+\item Verdadeiro Positivo: Valor Real = 1, Valor Predito = 1
+\cite{b8}
+\end{itemize}
 \end{itemize}
 \begin{table}[H]
 	\centering
+    \caption{\label{tab:cr1-gt} Comparação entre o Classificador Categórico e o Gaussiano}
     \begin{small}
         \begin{tabular}{ccc}
         	\\
@@ -339,7 +368,7 @@ Após treinar ambos os classificadores (Gaussiano e Categórico), usando 20 por 
 \end{table}
 
 \begin{figure}[H]
-\centerline{\includegraphics[width=0.5\textwidth]{IMGS/cm-categorico.png}}
+\centerline{\includegraphics[width=0.4\textwidth]{IMGS/cm-categorico.png}}
 
 \caption{\label{fig:cm1-cnb}Confusion Matrix do Classificador Categórico}
 \end{figure}
@@ -369,14 +398,174 @@ Após treinar ambos os classificadores (Gaussiano e Categórico), usando 20 por 
 
 
 \begin{figure}[H]
-\centerline{\includegraphics[width=0.5\textwidth]{IMGS/cm-gaussiano.png}}
+\centerline{\includegraphics[width=0.4\textwidth]{IMGS/cm-gaussiano.png}}
 \label{cm1-gnb}
 \caption{\label{fig:cm1-gnb}Confusion Matrix do Classificador Gaussiano}
 \end{figure}
 
+\subsection{Usando Apenas a Variável Age Para Treino}
+Foram usados 70 por cento dos valores para treino e 30 por cento dos valores para teste.
+
+\begin{table}[H]
+	\centering
+    \caption{\label{tab:cr2-gt} Comparação entre o Classificador Categórico e o Gaussiano}
+    \begin{small}
+        \begin{tabular}{ccc}
+        	\\
+        	%\multicolumn{2}{c}{{\fontsize{13}{\baselineskip} \selectfont C}{\fontsize{11}{\baselineskip}\selectfont RONOGRAMA DE}{\fontsize{13}{\baselineskip} \selectfont A}{\fontsize{11}{\baselineskip}\selectfont TIVIDADES }}\\ 
+        	\\
+            \hline
+                                    & Categórico       & Gaussiano\\
+            \hline
+            Precision               & 0.88             & 0.88\\
+            Accuracy                & 0.88             & 0.88\\
+            Recall Score            & 0.88             & 0.88\\
+            F1-Score                & 0.88             & 0.88\\
+            
+            \hline
+        \end{tabular}
+    \end{small}
+\end{table}
+
+
+\begin{table}[H]
+
+	\centering
+    \caption{\label{tab:cr2-cnb} Relatório de Classificação por Label do Classificador Categórico.}
+    \begin{small}
+        \begin{tabular}{ccc}
+        
+            \hline
+                                    & 0                & 1\\
+            \hline
+            Precision               & 0.88             & 0.50\\
+            Recall Score            & 1.00             & 0.02\\
+            F1-Score                & 0.94             & 0.04\\
+            
+            \hline
+        \end{tabular}
+    \end{small}
+\end{table}
+
+\begin{figure}[H]
+    \centerline{\includegraphics[width=0.4\textwidth]{IMGS/cm-cnb-age-only.png}}
+    
+    \caption{\label{fig:cm2-cnb}Confusion Matrix do Classificador Categórico}
+\end{figure}
+
+
+\begin{table}[H]
+
+	\centering
+    \caption{\label{tab:cr2-gnb} Relatório de Classificação por Label do Classificador Gaussiano}
+    \begin{small}
+        \begin{tabular}{ccc}
+        
+            \hline
+                                    & 0                & 1\\
+            \hline
+            Precision               & 0.88             & 0.48\\
+            Recall Score            & 1.00             & 0.03\\
+            F1-Score                & 0.94             & 0.05\\
+            
+            \hline
+        \end{tabular}
+    \end{small}
+
+\end{table}
+
+
+\begin{figure}[H]
+    \centerline{\includegraphics[width=0.4\textwidth]{IMGS/cm-gnb-age-only.png}}
+    \caption{\label{fig:cm2-gnb}Confusion Matrix do Classificador Gaussiano}
+\end{figure}
+
+\subsection{Usando Apenas Variáveis Numéricas Para Treino}
+
+\begin{table}[H]
+	\centering
+    \caption{\label{tab:cr3-gt} Comparação entre o Classificador Categórico e o Gaussiano}
+    \begin{small}
+        \begin{tabular}{ccc}
+        	\\
+        	%\multicolumn{2}{c}{{\fontsize{13}{\baselineskip} \selectfont C}{\fontsize{11}{\baselineskip}\selectfont RONOGRAMA DE}{\fontsize{13}{\baselineskip} \selectfont A}{\fontsize{11}{\baselineskip}\selectfont TIVIDADES }}\\ 
+        	\\
+            \hline
+                                    & Categórico       & Gaussiano\\
+            \hline
+            Precision               & 0.89             & 0.89\\
+            Accuracy                & 0.89             & 0.89\\
+            Recall Score            & 0.89             & 0.89\\
+            F1-Score                & 0.89             & 0.89\\
+            
+            \hline
+        \end{tabular}
+    \end{small}
+\end{table}
+
+\begin{table}[H]
+
+	\centering
+    \caption{\label{tab:cr3-cnb} Relatório de Classificação por Label do Classificador Categórico.}
+    \begin{small}
+        \begin{tabular}{ccc}
+        
+            \hline
+                                    & 0                & 1\\
+            \hline
+            Precision               & 0.89             & 0.63\\
+            Recall Score            & 0.99             & 0.11\\
+            F1-Score                & 0.94             & 0.18\\
+            
+            \hline
+        \end{tabular}
+    \end{small}
+\end{table}
+
+\begin{figure}[H]
+    \centerline{\includegraphics[width=0.4\textwidth]{IMGS/cm-cnb-numeric.png}}
+    
+    \caption{\label{fig:cm3-cnb}Confusion Matrix do Classificador Categórico}
+\end{figure}
+
+
+\begin{table}[H]
+
+	\centering
+    \caption{\label{tab:cr3-gnb} Relatório de Classificação por Label do Classificador Gaussiano}
+    \begin{small}
+        \begin{tabular}{ccc}
+        
+            \hline
+                                    & 0                & 1\\
+            \hline
+            Precision               & 0.91             & 0.53\\
+            Recall Score            & 0.96             & 0.32\\
+            F1-Score                & 0.94             & 0.40\\
+            
+            \hline
+        \end{tabular}
+    \end{small}
+
+\end{table}
+
+
+\begin{figure}[H]
+    \centerline{\includegraphics[width=0.4\textwidth]{IMGS/cm-gnb-numeric.png}}
+    \caption{\label{fig:cm3-gnb}Confusion Matrix do Classificador Gaussiano}
+\end{figure}
 
 
 \section{Análise dos Resultados}
+
+Como é possível ver através dos dados acima, Os três primeiros experimentos apresentam os valores de Precision, Accuracy, Recall e F1-Score
+extremamente altos (acima de 80 por cento) porém ao análisar os resultados por label. verifica-se que há uma quantidade bem maior de verdadeiros negativos do que verdadeiros positivos.
+Isso se evidencia ainda mais quando é usada apenas feature age para treinar o classificador, pois a quantidade de verdadeiros positivos diminui drásticamente.
+Uma hipótese do motivo pelo qual acontece o ocorrido é que a base de dados tem mais exemplos de quando a variável y tem o valor no (mapeado para o label 0),
+do que quando esta possui o valor yes (mapeada para o label 1).
+
+Além disso pode-se observar que o Classificador Ingênuo de Bayes Categórico tem praticamente o mesmo desempenho do que o Classificador ingênuo de Bayes Gaussiano, o que não é o esperado pois boa parte das variáveis que a base de dados possui é do tipo categórico.
+
 
 \section{Conclusões e Discussões}
 
