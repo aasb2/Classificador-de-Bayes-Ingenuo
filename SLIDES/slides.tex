@@ -19,7 +19,7 @@
 \begin{document}
 \maketitle
 
-\begin{frame}
+\begin{frame}[allowframebreaks]
 \frametitle{Overview}
 \tableofcontents
 \end{frame}
@@ -202,7 +202,7 @@
             \begin{figure}[h]
                 \caption{Exemplo 7}
                 \centering % para centralizarmos a figura
-                \includegraphics[width=1\textwidth]{IMGS/img6.png}
+                \includegraphics[width=1\textwidth]{IMGS/img7.png}
                 \label{figura:distidade}
             \end{figure}
         \end{column}
@@ -213,14 +213,14 @@
           
 \end{frame}
 
-
 \begin{frame}
-\frametitle{Classificador Ingênuo de Bayes}
-\subsection{História}
-\framesubtitle{O que é Naive Bayes}
-
-Baseado no Teorema de Bayes, nome em homenagem ao matemático e pastor presbiteriano inglês Thomas Bayes, que formulou uma função probabilística com o ideal de provar a existência de Deus, é um algoritmo de classificação probabilística muito utilizado para aprendizado de máquina (Machine Learning).
-
+    \section{Classificador Ingênuo de Bayes}
+    \frametitle{Classificador Ingênuo de Bayes}
+    \subsection{História}
+    \framesubtitle{O que é Naive Bayes}
+    
+    Baseado no Teorema de Bayes, nome em homenagem ao matemático e pastor presbiteriano inglês Thomas Bayes, que formulou uma função probabilística com o ideal de provar a existência de Deus, é um algoritmo de classificação probabilística muito utilizado para aprendizado de máquina (Machine Learning).
+    
 \end{frame}
 
 \begin{frame}
@@ -252,27 +252,26 @@ Baseado no Teorema de Bayes, nome em homenagem ao matemático e pastor presbiter
 \end{frame}
 
 \begin{frame}
-\frametitle{Classificador Ingênuo de Bayes}
-\subsection{Vantagens}
-\framesubtitle{Vantagens}
-\begin{itemize}
-\item Rápido
-\item Eficiente
-\item Lida com múltiplos tidos de dados
-\item Ignora características irrelevantes
-
-\end{itemize}
-\end{frame}
-\begin{frame}
-\frametitle{Classificador Ingênuo de Bayes}
-\subsection{Desvantagens}
-\framesubtitle{Desvantagens}
-\begin{itemize}
-\item Previsão falha em frequência zero
-\item Ignorar a correlação entre as variáveis
-\end{itemize}
-\end{frame}
-
+    \frametitle{Classificador Ingênuo de Bayes}
+    \subsection{Vantagens}
+    \framesubtitle{Vantagens}
+    \begin{itemize}
+    \item Rápido
+    \item Eficiente
+    \item Lida com múltiplos tidos de dados
+    \item Ignora características irrelevantes
+    
+    \end{itemize}
+    \end{frame}
+    \begin{frame}
+    \frametitle{Classificador Ingênuo de Bayes}
+    \subsection{Desvantagens}
+    \framesubtitle{Desvantagens}
+    \begin{itemize}
+    \item Previsão falha em frequência zero
+    \item Ignorar a correlação entre as variáveis
+    \end{itemize}
+    \end{frame}
 
 \begin{frame}
 \frametitle{Classificador Ingênuo de Bayes}
@@ -290,10 +289,22 @@ Baseado no Teorema de Bayes, nome em homenagem ao matemático e pastor presbiter
 \subsection{Experimentos Iniciais}
 \framesubtitle{Experimentos Iniciais}
 \begin{itemize}
-\item Precision
+\item Precision:
+\begin{equation}
+    \frac{t_p}{t_p + f_p}
+\end{equation}
 \item Accuracy
+\begin{equation}
+    \frac{t_p + t_n}{t_p + t_n + f_p + f_n}
+\end{equation}
 \item Recall Score
+\begin{equation}
+    \frac{t_p}{t_p + f_n}
+\end{equation}
 \item F1 Score
+\begin{equation}
+    \frac{2\cdot(precision\cdot recall)}{precision +  recall}
+\end{equation}
 \end{itemize}
 \end{frame}
 
@@ -517,7 +528,7 @@ Baseado no Teorema de Bayes, nome em homenagem ao matemático e pastor presbiter
         \begin{columns}
             \begin{column}{0.5\textwidth}
                 \begin{table}[H]
-
+                    \caption{\label{tab:cr3-cnb} Relatório de Classificação por Label do Classificador Categórico.}
                     \centering
                     \begin{small}
                         \begin{tabular}{ccc}
@@ -581,13 +592,50 @@ Baseado no Teorema de Bayes, nome em homenagem ao matemático e pastor presbiter
 
 \begin{frame}
 \section{Análise dos Resultados}
-\frametitle{Análise dos Resultados}   
-\framesubtitle{Subtitulo 1111}
-	Colocar imagem aqui    
+\subsection{Resultados Iníciais}
+\frametitle{Análise dos Resultados}
+\framesubtitle{Resultados Iniciais}  
+\begin{itemize}
+\item Classificador Gaussiano vs Classificador Categórico
+\item Número de Features
+\item Falsos positivos vs Falsos Negativos
+\end{itemize}
 \end{frame}
 
 \begin{frame}
+    \frametitle{Análise dos Resultados}  
+    \subsection{Perfil Mais Receptivo}
+    \framesubtitle{Perfil Mais Receptivo}
+    \begin{itemize}
+    \item Profissão: estudante
+    \item Estado Civil: divorciado
+    \item Credito Pessoal: possui
+    \item Credito de Habitação: não possui
+    \item Tipo de Contato: celular
+    \item Educação: ensino médio
+    \item Mês da Campanha: setembro
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Análise dos Resultados}  
+    \subsection{Perfil Menos Receptivo}
+    \framesubtitle{Perfil Menos Receptivo}
+    \begin{itemize}
+    \item Profissão: operario
+    \item Estado Civil: casado
+    \item Credito Pessoal: não possui
+    \item Credito de Habitação: possui
+    \item Tipo de Contato: unknown
+    \item Educação: ensino fundamental
+    \item Mês da Campanha: maio
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
 	\frametitle{Análise dos Resultados}
+    \subsection{Categorias exóticas}
 	\framesubtitle{Categorias exóticas}
 	\begin{columns}
 		\begin{column}{1\textwidth}
@@ -599,21 +647,4 @@ Baseado no Teorema de Bayes, nome em homenagem ao matemático e pastor presbiter
 		\end{column}
 	\end{columns}    
 \end{frame}
-
-\begin{frame}
-	\frametitle{Análise dos Resultados}
-	\framesubtitle{Perfis ideais}
-	Podemos traçar o perfil ideal de um tipo de pessoa que mais aceitaria e o tipo que mais rejeitaria assinar o depósito a prazo. \linebreak
-	\begin{itemize}
-		\item Perfil mais receptivo. \linebreak
-		\item Perfil menos receptivo.
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Análise dos Resultados}
-	\framesubtitle{Subtitulo 2222}
-	Outra imagem aqui.
-\end{frame}
-
 \end{document}
