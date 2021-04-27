@@ -82,7 +82,7 @@ Para o projeto será usado o item 3 (bank-full.csv) contendo 16 variáveis de en
 
     \item marital: estado civil (categórico: 'divorced','married','single','unknown'; nota: 'divorced' significa divorciado ou viúvo).
 
-    \item education: (categórico: 'basic.4y','basic.6y','basic.9y','high.school','illiterate','professional.course','university.degree','unknown').
+    \item education: (categórico: 'basic.4y','basic.6y','basic.9y','high.school','illiterate', 'professional.course','university.degree','unknown').
 
     \item default: possui crédito inadimplente? (categórico: 'no','yes','unknown').
 
@@ -215,7 +215,7 @@ De maneira análoga, com P(A) diferente de 0,
 \begin{equation}
    P(B|A) = \frac{P(A|B)P(B)}{P(A)}.
 \end{equation} 
-
+\cite{b9}
 \subsection{Tipos de Classificadores Ingênuos de Bayes}
 A biblioteca Scikit learn apresenta diversos tipos de Classificadores. As diferenças principais entre eles são principalmente em relação as suposições feitas em relação a distribuição de probabilidade $P(x_i|y)$. 
 No projeto foram-se aplicados dois tipos de Classificadores, o Gaussiano e o Categórico:
@@ -567,14 +567,16 @@ Além disso pode-se observar que o Classificador Ingênuo de Bayes Categórico t
 
 
 \section{Conclusões e Discussões}
+
+
+Este Trabalho é de grande valia para a compreensão do algoritmo de classificação ingênuo de Bayes, o tema deste projeto foi o marketing bancário, onde através de 16 variáveis de entrada tenta-se prever se um cliente fará um depósito a prazo baseado em dados obtidos no site machine learning repository \cite{b1}. A metodologia seguida foi primeiramente a análise exploratória dos dados, seguido da criação  do classificador Ingênuo de Bayes com o auxílio da biblioteca scikit learn. Após a criação do classificador foi analisado o seu desempenho através de métricas usadas em Machine Learning.
+Foram realizados também alguns experimentos comparando o classificador gaussiano com o categórico e através da diminuição do número de variáveis usadas.
+
+Os resultados obtidos foram que ambos os classificadores possuem desempenho semelhantes e que pelo fato da quantidade de valores de cada classe de saída serem muito discrepantes a precisão do classificador foi muito baixa para avaliar uma destas.
+
 O naive Bayes se apresenta como uma ótima ferramenta, de maneira simples e rápida, com um pequeno número de dados é possível identificar padrões de comportamentos com boa precisão, além do mais é possível, ao mesmo tempo, lidar com diferentes tipos de dados como real, discreto e contínuo, por exemplo, e descartar características irrelevantes.
 
-
 Ao decorrer da análise pode ser que ocorra erros ao usar o Naive Bayes quando a probabilidade de algum atributo for 0, ou também chamado de frequência zero, produzindo uma previsão completamente falha, neste caso é necessário usar de técnicas de suavização como, por exemplo, a correção Laplaciana.Outra desvantagem é a de ignorar a correlação entre as variáveis, que até certo ponto de vista pode ser tido como vantagem, na realidade é muito improvável encontrar um conjunto de variáveis que sejam totalmente independentes.
-
-
-
-
 \bibliography{mybib}
 \nocite{*}
 \bibliographystyle{IEEEtran}
